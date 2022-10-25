@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Costea_Maria_Lab2.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<Costea_Maria_Lab2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Costea_Maria_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Costea_Maria_Lab2Context' not found.")));
 
 var app = builder.Build();
 
