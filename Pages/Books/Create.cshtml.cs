@@ -21,7 +21,7 @@ namespace Costea_Maria_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-            var authorList = _context.AutorID.Select(x => new
+            var authorList = _context.Author.Select(x => new
             {
                 x.ID,
                 FullName = x.LastName + " " + x.FirstName
@@ -35,6 +35,7 @@ namespace Costea_Maria_Lab2.Pages.Books
             PopulateAssignedCategoryData(_context, book);
             return Page();
         }
+
 
         [BindProperty]
         public Book Book { get; set; }
@@ -58,7 +59,7 @@ namespace Costea_Maria_Lab2.Pages.Books
             if (await TryUpdateModelAsync<Book>(
             newBook,
             "Book",
-            i => i.Title, i => i.Autor,
+            i => i.Title, i => i.Author,
             i => i.Pret, i => i.PublishingDate, i => i.PublisherID))
             {
                 _context.Book.Add(newBook);

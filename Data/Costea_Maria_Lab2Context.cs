@@ -9,9 +9,7 @@ namespace Costea_Maria_Lab2.Data
 {
     public class Costea_Maria_Lab2Context : DbContext
     {
-        internal IEnumerable<object> Author;
-
-        public Costea_Maria_Lab2Context (DbContextOptions<Costea_Maria_Lab2Context> options)
+        public Costea_Maria_Lab2Context(DbContextOptions<Costea_Maria_Lab2Context> options)
             : base(options)
         {
         }
@@ -21,6 +19,9 @@ namespace Costea_Maria_Lab2.Data
         public DbSet<Costea_Maria_Lab2.Models.Publisher> Publisher { get; set; }
 
         public DbSet<Costea_Maria_Lab2.Models.Category> Category { get; set; }
-        public IEnumerable<object> Autor { get; internal set; }
+
+        public DbSet<Costea_Maria_Lab2.Models.BookCategory> BookCategory { get; set; }
+
+        public DbSet<Costea_Maria_Lab2.Models.Author> Author { get; set; }
     }
 }

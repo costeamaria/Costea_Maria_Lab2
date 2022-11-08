@@ -37,7 +37,7 @@ namespace Costea_Maria_Lab2.Pages.Books
  .AsNoTracking()
  .FirstOrDefaultAsync(m => m.ID == id);
 
-            var book =  await _context.Book.FirstOrDefaultAsync(m => m.Id == id);
+            var book =  await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
             PopulateAssignedCategoryData(_context, Book);
             if (book == null)
             {
@@ -66,16 +66,16 @@ namespace Costea_Maria_Lab2.Pages.Books
             {
                 return NotFound();
             }
-            if (await TryUpdateModelAsync<Book>(
+           /* if (await TryUpdateModelAsync<Book>(
             bookToUpdate,
             "Book",
             i => i.Title, i => i.Autor,
             i => i.Pret, i => i.PublishingDate, i => i.Publisher))
-            {
+            {*/
                 UpdateBookCategories(_context, selectedCategories, bookToUpdate);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
-            }
+            //}
             //Apelam UpdateBookCategories pentru a aplica informatiile din checkboxuri la entitatea Books care
             //este editata
             UpdateBookCategories(_context, selectedCategories, bookToUpdate);

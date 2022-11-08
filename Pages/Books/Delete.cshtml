@@ -18,12 +18,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Book.Title)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.Autor)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.Autor)
-        </dd>
+       
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Book.Pret)
         </dt>
@@ -39,7 +34,7 @@
         @Html.DisplayFor(model => model.Book.PublishingDate)
     </dd>
     <form method="post">
-        <input type="hidden" asp-for="Book.Id" />
+        <input type="hidden" asp-for="Book.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>
