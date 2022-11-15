@@ -27,8 +27,7 @@ namespace Costea_Maria_Lab2.Pages.Books
                 FullName = x.LastName + " " + x.FirstName
             });
             ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID",
-           "PublisherName");
+            ViewData["PublisherID"] = new SelectList(_context.Publisher, "ID","PublisherName");
 
             var book = new Book();
             book.BookCategories = new List<BookCategory>();
@@ -56,11 +55,7 @@ namespace Costea_Maria_Lab2.Pages.Books
                     newBook.BookCategories.Add(catToAdd);
                 }
             }
-            if (await TryUpdateModelAsync<Book>(
-            newBook,
-            "Book",
-            i => i.Title, i => i.Author,
-            i => i.Pret, i => i.PublishingDate, i => i.PublisherID))
+            if (await TryUpdateModelAsync<Book>(newBook,"Book",i => i.Title, i => i.AuthorID,i => i.Pret, i => i.PublishingDate, i => i.PublisherID))
             {
                 _context.Book.Add(newBook);
                 await _context.SaveChangesAsync();

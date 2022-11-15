@@ -23,5 +23,9 @@ namespace Costea_Maria_Lab2.Data
         public DbSet<Costea_Maria_Lab2.Models.BookCategory> BookCategory { get; set; }
 
         public DbSet<Costea_Maria_Lab2.Models.Author> Author { get; set; }
+
+        public DbSet<Costea_Maria_Lab2.Models.Member> Member { get; set; }
+
+        public DbSet<Costea_Maria_Lab2.Models.Borrowing> Borrowing { get; set; }
     }
 }

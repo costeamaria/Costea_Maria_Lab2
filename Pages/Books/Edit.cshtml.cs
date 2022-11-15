@@ -33,6 +33,7 @@ namespace Costea_Maria_Lab2.Pages.Books
 
             Book = await _context.Book
  .Include(b => b.Publisher)
+ .Include(b=>b.Author)
  .Include(b => b.BookCategories).ThenInclude(b => b.Category)
  .AsNoTracking()
  .FirstOrDefaultAsync(m => m.ID == id);
@@ -44,8 +45,8 @@ namespace Costea_Maria_Lab2.Pages.Books
                 return NotFound();
             }
             Book = book;
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID",
-"PublisherName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID","PublisherName");
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "FullName");
             return Page();
         }
 
@@ -59,6 +60,7 @@ namespace Costea_Maria_Lab2.Pages.Books
             }
             var bookToUpdate = await _context.Book
             .Include(i => i.Publisher)
+            .Include(i=>i.Author)
             .Include(i => i.BookCategories)
             .ThenInclude(i => i.Category)
             .FirstOrDefaultAsync(s => s.ID == id);
