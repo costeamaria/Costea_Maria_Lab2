@@ -8,10 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Costea_Maria_Lab2.Data;
 using Costea_Maria_Lab2.Models;
-
+using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Costea_Maria_Lab2.Pages.Books
 {
+
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Costea_Maria_Lab2.Data.Costea_Maria_Lab2Context _context;

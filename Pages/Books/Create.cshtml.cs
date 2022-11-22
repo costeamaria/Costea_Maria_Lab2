@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Costea_Maria_Lab2.Data;
 using Costea_Maria_Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Costea_Maria_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : BookCategoriesPageModel
     {
         private readonly Costea_Maria_Lab2.Data.Costea_Maria_Lab2Context _context;
